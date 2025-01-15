@@ -13,8 +13,8 @@ const itemCount = ({stock, onAdd}) => {
       if(count > 0){setCount(count - 1)}
     }
 
-    console.log("valor de count:", count);
-    console.log('soy itemcount y me monte');
+    // console.log("valor de count:", count);
+    // console.log('soy itemcount y me monte');
   return (
     <>
       <div>
