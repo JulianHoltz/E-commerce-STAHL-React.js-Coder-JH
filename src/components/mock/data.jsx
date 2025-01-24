@@ -51,3 +51,19 @@ export const getProducts = () => { //el EXPORT aca es para exportar SOLO LA FUNC
     }, 3000);
   });
 };
+
+//Un item
+export const getOneProduct = (id) => {
+  return new Promise ((resolve) => {
+    setTimeout(() => {
+      //Version harcodeada
+      //resolve(products[2])
+
+      //Version dinamica (hay que incluirle id como dato de entrada!)
+      let producto = productos.find((item) => item.id === id)
+      resolve (producto)
+    },3000)
+  })
+}
+
+

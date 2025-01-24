@@ -5,6 +5,7 @@ import { GiAnvil } from "react-icons/gi";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false);
@@ -27,23 +28,23 @@ const NavBar = () => {
       <div className="text-slate-100 flex items-center justify-between p-10 lg:flex-row">
         <div className="font-mono text-3xl flex items-center tracking-wider">
           <GiAnvil className="text-4xl mr-4" />
-          <a href="#">STAHL</a>
+          <NavLink to='/'>STAHL</NavLink>
         </div>
         <div className="space-x-4 ssm:hidden lg:block">
-          <a
-            href="#"
+          <NavLink
+            to='/'
             className="relative text-xl transition-all duration-300 group"
           >
             Home
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="/"
             className="relative text-xl transition-all duration-300 group"
           >
             About Us
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          </NavLink>
           <div className="relative inline-block">
             <button
               onClick={toggleDropdown}
@@ -55,13 +56,13 @@ const NavBar = () => {
             </button>
             {dropdown && <DropDown />}
           </div>
-          <a
-            href="#"
+          <NavLink
+            to="/"
             className="relative text-xl transition-all duration-300 group"
           >
             Contact Us
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          </NavLink>
         </div>
         <CartWidget />
         <div className="ssm:block lg:hidden">

@@ -1,7 +1,11 @@
 import { useState } from 'react'
+//import { useCounter } from '../Hooks/useCounter'
 
 const itemCount = ({stock, onAdd}) => {
-    //destructuring del array de useState
+  //Importo custom Hook  
+  //const {count, add, subtract} = useCounter(stock) REVISAR NO ANDA
+  
+  //destructuring del array de useState
     const [count, setCount] = useState(1)
 
     //funcion de sumar
@@ -9,7 +13,7 @@ const itemCount = ({stock, onAdd}) => {
       if(count < stock){setCount(count + 1)}
     }
     //funcion de restar
-    const substract = () => {
+    const subtract = () => {
       if(count > 0){setCount(count - 1)}
     }
 
@@ -19,7 +23,7 @@ const itemCount = ({stock, onAdd}) => {
     <>
       <div>
           <div className='text-2xl text-center text-slate-300 font-bold'>
-              <button className='rounded-l-lg bg-cyan-600 min-h-10 min-w-6 hover:bg-slate-600' onClick={substract} disabled={count === 0}>-</button>
+              <button className='rounded-l-lg bg-cyan-600 min-h-10 min-w-6 hover:bg-slate-600' onClick={subtract} disabled={count === 0}>-</button>
               <span className='inline-block text-center min-w-40 text-slate-800'>{count}</span>
 
               {/* disable, si se cumple la porpiedad desaparece el boton */}
