@@ -1,15 +1,17 @@
 import CartWidget from './CartWidget';
 import DropDown from './DropDown';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiAnvil } from "react-icons/gi";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const location = useLocation();
 
   function openMenu() {
     setToggle(true);
@@ -22,6 +24,11 @@ const NavBar = () => {
   function toggleDropdown() {
     setDropdown(!dropdown);
   }
+
+  useEffect(() => { //No puedo creer que me salio Jaja
+    setDropdown(false);
+  },[location.pathname])
+
 
   return (
     <>
