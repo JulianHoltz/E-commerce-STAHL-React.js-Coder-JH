@@ -5,6 +5,8 @@ import {getProducts} from './mock/data'
 import FetchConteiner from './FetchConteiner';
 import {useParams} from 'react-router-dom';
 import { SiPanasonic } from 'react-icons/si';
+import ResizeComponent from '../Ejemplos/ResizeComponent';
+import FormComponentVocal from '../Ejemplos/FormComponentVocal';
 
 
 
@@ -34,9 +36,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <div className="flex flex-col bg-slate-800 w-full min-h-80 flex items-center justify-center">
       <h1 className="text-xl font-bold">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
-      <FetchConteiner/>
-      <ItemList productsList = {productsList}/> {/*Le paso los datos a mi componente hijo*/}
-      {/* este componente despues lo sacamos */}
+      <FormComponentVocal/>
     </div>
   );
 };
