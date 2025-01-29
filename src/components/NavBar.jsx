@@ -26,10 +26,12 @@ const NavBar = () => {
   return (
     <>
       <div className="text-slate-100 flex items-center justify-between p-10 lg:flex-row">
+      <NavLink to='/'>
         <div className="font-mono text-3xl flex items-center tracking-wider">
           <GiAnvil className="text-4xl mr-4" />
-          <NavLink to='/'>STAHL</NavLink>
+          STAHL
         </div>
+        </NavLink>
         <div className="space-x-4 ssm:hidden lg:block">
           <NavLink
             to='/'
@@ -39,7 +41,7 @@ const NavBar = () => {
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
           <NavLink
-            to="/"
+            to="/aboutUs"
             className="relative text-xl transition-all duration-300 group"
           >
             About Us
@@ -57,7 +59,7 @@ const NavBar = () => {
             {dropdown && <DropDown />}
           </div>
           <NavLink
-            to="/"
+            to="/ContactUs"
             className="relative text-xl transition-all duration-300 group"
           >
             Contact Us

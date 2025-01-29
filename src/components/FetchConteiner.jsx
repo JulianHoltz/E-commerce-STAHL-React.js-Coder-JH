@@ -10,7 +10,7 @@ const FetchConteiner = () => {
         .then((data) => setPersonajes(data.results)) //guardar la respuesta
         .catch((error) => console.log(error, 'error')) //hay que manejar el error, por que puede fallar dijo tusam
     },[])
-    console.log(personajes, 'personajes');
+    //console.log(personajes, 'personajes');
   return (
     <div>FetchConteiner</div>
   )

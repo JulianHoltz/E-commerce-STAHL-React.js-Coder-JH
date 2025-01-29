@@ -7,15 +7,16 @@ import {useParams} from 'react-router-dom';
 
 const ItemDetailConteiner = () => {
 const [item, setItem] = useState({})
+const {itemId} = useParams(); //Obtenemos el id desde la ruta "como si fuese HTTP"
 
 useEffect(() => {
-    getOneProduct('001')
+    getOneProduct(itemId)
     .then((res) => setItem(res))
-    .cath((error) => console.log(error))
-},[])
+    .catch((error) => console.log(error))
+},[itemId]); //al poner itemID entre el corchete el useEffect se ejecuta cada vez quecambie su valor(itemID)
 
   return (
-    <ItemDetail/>
+    <ItemDetail item={item}/>
   )
 }
 
