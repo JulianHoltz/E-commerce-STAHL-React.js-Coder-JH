@@ -2,12 +2,12 @@ import React from "react";
 
 export const AboutUs = () => {
   return (
-    <div className="flex ">
-      <div>
-        <img src="https://i.ibb.co/DfTJN2jg/Industria.jpg" alt="Company image" />
+    <div className="flex flex-row bg-slate-800 w-full min-h-80 flex items-center justify-center text-slate-100 gap-4 min-h-[50VH] max-h-[70VH]">
+      <div className="max-h-full w-full overflow-hidden">
+        <img className="w-full h-full object-cover rounded-2xl" src="https://i.ibb.co/DfTJN2jg/Industria.jpg" alt="Company image" />
       </div>
-      <div>
-        <h2>Company Profile</h2>
+      <div className="max-w-[50VW]">
+        <h2 className="text-4xl">Company Profile</h2>
         <p>
           Jiuzhou Metal Products (Shandong) Co., Ltd. ("Jiuzhou Metal" for
           short) is a subsidiary of Jiuzhou Metal Group, committed to delivering
