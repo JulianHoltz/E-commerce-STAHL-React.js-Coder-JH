@@ -6,12 +6,14 @@ import ItemListConteinerFiltro from './components/ItemListConteinerFiltro'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {CartProvider} from './context/CartContext';
 
 
 function App() {
 
   return (
     <BrowserRouter>
+      <CartProvider>
       <div className='bg-slate-900'><NavBar/></div>
       <Routes>
         <Route path='/' element={<ItemListContainer greeting='Bienvenido!'/>}/>
@@ -23,6 +25,7 @@ function App() {
         <Route path='/checkout' element={<h1>aca serael paso final de la compra</h1>}/>
       </Routes>
       <div className='bg-slate-900'><Footer/></div>
+      </CartProvider>
     </BrowserRouter>
   )
 }

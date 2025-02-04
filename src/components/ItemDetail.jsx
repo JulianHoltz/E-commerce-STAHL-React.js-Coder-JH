@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from './itemCount';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({item}) => {
   //console.log(item); //NO entendia por que no me cargaba el ITEM, por que cargaba el ITEM todavia vacio...
@@ -8,8 +9,11 @@ const ItemDetail = ({item}) => {
   }
   const onAdd = (cantidad) => {
     alert(`Agregaste ${cantidad} al carritoS`)
+    addItem(productDetail, cantidad)
   }
   
+  console.log(cart, 'carrito')
+  const{cart,addItem} = useContext(CartContext)
   return (
     <div className='flex justify-center m-4'>
       <div className='max-w-80 flex flex-col justify-center border-solid border-4 border-slate-300 rounded-2xl items-center p-4 bg-slate-100'>
