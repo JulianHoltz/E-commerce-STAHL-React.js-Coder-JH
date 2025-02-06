@@ -23,6 +23,7 @@ function App() {
         <Route path='/ContactUs' element={<ContactUs/>}/>
         <Route path='/cart' element={<h1>Aca vendra el carrito</h1>}/>
         <Route path='/checkout' element={<h1>aca serael paso final de la compra</h1>}/>
+        {/* <Route path='/cart' element={}></Route> */}
       </Routes>
       <div className='bg-slate-900'><Footer/></div>
       </CartProvider>
