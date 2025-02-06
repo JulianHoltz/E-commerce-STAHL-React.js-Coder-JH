@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 const DropDown = () => {
   return (
     <ul className="absolute left-0 mt-2 w-40 bg-slate-800 text-slate-100 rounded-md shadow-lg">
+      <NavLink to={`/`}><li className="px-4 py-2 hover:bg-slate-700">
+        All products
+      </li></NavLink>
       <NavLink to={`/category/Rebars`}><li className="px-4 py-2 hover:bg-slate-700">
         Rebars
       </li></NavLink>

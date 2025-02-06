@@ -12,8 +12,9 @@ const ItemDetail = ({item}) => {
     addItem(productDetail, cantidad)
   }
   
-  console.log(cart, 'carrito')
+ 
   const{cart,addItem} = useContext(CartContext)
+  console.log(cart, 'carrito')
   return (
     <div className='flex justify-center m-4'>
       <div className='max-w-80 flex flex-col justify-center border-solid border-4 border-slate-300 rounded-2xl items-center p-4 bg-slate-100'>
