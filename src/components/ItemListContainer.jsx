@@ -3,32 +3,41 @@ import ItemList from './ItemList';
 import {getProducts} from './mock/data'
 import FetchConteiner from './FetchConteiner';
 import {useParams} from 'react-router-dom';
+import {db} from './services/firebase.jsx'
+import {collection, getDocs, query, where} from 'firebase/firestore'
 
 
 
 const ItemListContainer = ({ greeting }) => {
   const [productsList, setProductsList] = useState([]);
   const {categoryId} = useParams();
+  const [loader, setLoader] = useState(false);
   
+  //FIREBASE
+  useEffect(()=>{
+    setLoader(true);
+    //conectamos con la db metodo de firebase (configs, nombre de la coleccion) configs = getFirestore de firebase.jsx
+    //aplico un ternario para ver si tiene categoria query(data, filtro) where("sobreQuePropiedad"? , Que.condicion? , que devuelvo)
+    const productsCollection = categoryId ? query(collection(db,"products"), where("category","==", categoryId)) : collection(db,"products");
+    //pedir los datos AKA documentos metodo getDocs, para traer muchos "devuelve una promesa"
+    getDocs(productsCollection)
+    //si a la res le pongo .docs me limpia el objeto, sino es imposible
+    .then((res)=>{
+      const list = res.docs.map((doc)=>{
+        return {
+          id:doc.id,
+          ...doc.data() //metodo data me saca capas hasta el objeto que quiero
+        }
+      })
+      setProductsList(list)
+    }) //la respuesta esta fragmentada, no es un array limpio
+    .catch((error)=>console.log(error))
+    .finally(()=> setLoader(false))
+  },[categoryId])
 
 
-  //UseEffect con array de dependencias vacio "[]", es decir que se ejecute una unica vez
-  //PREGUNTA, se me ejecuta doble, por que???
- useEffect(() => {
-  //console.log(getProducts(), 'esto es la promesa cruda')
-  getProducts()
-  .then((res) => {
-    if(categoryId){
-      setProductsList(res.filter((item) => item.category === categoryId));
-    } else {
-      setProductsList(res);
-    }
-  }) //Si sale todo bien guardo la info en el estado
-  .catch((error) => console.log(error, 'y esto seria el error')) //si falla atrapo el error
-  },[categoryId]) //Aca seteo que este atento a ver si cambia el categoryId tiene que actualizar
-
- //console.log(productsList); //productsList ahora tiene Data
-
+  //Para hacer los filtros por categoria se usan metodos de Firebase, el metodo query
+  
   return (
     <div className="flex flex-col bg-slate-800 w-full min-h-80 flex items-center justify-center">
       <h1 className="text-xl font-bold">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
