@@ -139,7 +139,7 @@ export const getOneProduct = (id) => {
       //Version dinamica (hay que incluirle id como dato de entrada!)
       let producto = products.find((item) => item.id === id);
       producto ? resolve (producto) : reject("Producto no encontrado");
-    },200)
+    },1000)
   })
 }
 

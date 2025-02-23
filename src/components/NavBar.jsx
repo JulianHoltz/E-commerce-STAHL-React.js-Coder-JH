@@ -73,7 +73,9 @@ const NavBar = () => {
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </NavLink>
         </div>
-        <CartWidget />
+        <NavLink to="/cart">
+        <CartWidget/>
+        </NavLink>
         <div className="ssm:block lg:hidden">
           {toggle ? (
             <RxCross2 onClick={closeMenu} className="text-slate-100" size={50} />

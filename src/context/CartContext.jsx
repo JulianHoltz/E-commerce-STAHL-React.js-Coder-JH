@@ -1,15 +1,24 @@
-import { useState } from "react";
-import { createContext } from "react";
+import { useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 
 
 //Creo el contexto
 export const CartContext = createContext(); //lo exporto para poder usarlo fuera
+
+//Persistencia en sesion de los elementos del carrito
+// const productosDelLocalStorage = JSON.parse(localStorage.getItem('carrito')) || [];
+//OJO! Si uso storage local hay que cambiar el useState de cart de [] a productosDelLocalStorage
 
 //declaro el proveedor
 export const CartProvider = ({children}) => {
     //declaro el estado
     const [cart, setCart] = useState([]) //array vacio, por que voy a ir acumulando los objetos que representan los productos
 
+
+//Actualizacion del carrito al agregar items [Se ejecuta cada vez que se modifique el carrito]
+// useEffect(()=>{
+//     localStorage.setItem('carrito', JSON.stringify(cart));
+// },[cart])
 
     //funciones dinamicas
 
@@ -40,13 +49,24 @@ export const CartProvider = ({children}) => {
             setCart([])
         }
 
+        //Funcion que retorna la cantidad de productos totales, sin discriminar tipo o categoria
+        const cartQuantity = () => {
+            return cart.reduce((acc, item) => acc += item.quantity , 0)
+        }
+
+
         //Funcion que chequea si x id esta incluido en el array del carrito, devuelve true o false
         const isInCart = (id) => {
             return cart.some((item)=> item.id === id)
         }
+        
+        //Esta Funcion suma el valor total todos los productos en el carrito
+        const cartTotal = () => {
+            return cart.reduce((acc, item) => acc += item.price * item.quantity , 0)
+        }
 
     return(
-        <CartContext.Provider value={{cart, addItem, removeItem, clear}}> {/* etiqueta cartContext que cumple el rol de ser un Provider */}
+        <CartContext.Provider value={{cart, addItem, removeItem, clear, cartQuantity, cartTotal}}> {/* etiqueta cartContext que cumple el rol de ser un Provider */}
             {children}
         </CartContext.Provider>
     )
