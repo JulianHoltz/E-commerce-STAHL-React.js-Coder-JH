@@ -1,18 +1,7 @@
 
 
-const products = [
+export const products = [
   {
-    id: "1",
-    name: "Rebar 6mm",
-    price: 3500,
-    category: "Rebars",
-    description:"Steel reabar 6mm width, for concrete reinforcement",
-    img: "https://i.ibb.co/4Zj4rfGB/varillas6.jpg",
-    alt: "Rebar photo",
-    stock: 1
-  },
-  {
-    id: "2",
     name: "Rebar 8mm",
     price: 6000,
     category: "Rebars",
@@ -22,7 +11,6 @@ const products = [
     stock: 5
   },
   {
-    id: "3",
     name: "Rebar 10mm",
     price: 10250,
     category: "Rebars",
@@ -32,7 +20,6 @@ const products = [
     stock: 10
   },
   {
-    id: "4",
     name: "Rebar 12mm",
     price: 16300,
     category: "Rebars",
@@ -42,7 +29,6 @@ const products = [
     stock: 1
   },
   {
-    id: "5",
     name: "Structural Angle 2x2x1/4",
     price: 46100,
     category: "Beams",
@@ -52,7 +38,6 @@ const products = [
     stock: 100
   },
   {
-    id: "6",
     name: "HEB 200",
     price: 163000,
     category: "Beams",
@@ -62,7 +47,6 @@ const products = [
     stock: 20
   },
   {
-    id: "7",
     name: "Structural Tube 20x20x2",
     price: 35500,
     category: "Beams",
@@ -72,7 +56,6 @@ const products = [
     stock: 20
   },
   {
-    id: "8",
     name: "Corrugated steel sheet",
     price: 62300,
     category: "steelShets",
@@ -82,7 +65,6 @@ const products = [
     stock: 289
   },
   {
-    id: "9",
     name: "steel sheet 1/2",
     price: 190300,
     category: "steelShets",
@@ -92,7 +74,6 @@ const products = [
     stock: 18
   },
   {
-    id: "10",
     name: "Bosch Power Screwdriver",
     price: 77050,
     category: "PowerTools",
@@ -102,7 +83,6 @@ const products = [
     stock: 2
   },
   {
-    id: "11",
     name: "Bosch Grinder",
     price: 51209,
     category: "PowerTools",

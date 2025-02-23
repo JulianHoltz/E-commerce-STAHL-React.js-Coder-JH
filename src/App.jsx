@@ -7,6 +7,7 @@ import ContactUs from './components/ContactUs'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import {CartProvider} from './context/CartContext';
 import CartContainer from './components/CartContainer';
+import Checkout from './components/Checkout';
 
 
 
@@ -24,7 +25,7 @@ function App() {
         <Route path='/item/:itemId' element={<ItemDetailConteiner/>}/>
         <Route path='/ContactUs' element={<ContactUs/>}/>
         <Route path='/cart' element={<CartContainer/>}/>
-        <Route path='/checkout' element={<h1>aca serael paso final de la compra</h1>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
       </Routes>
       <div className='bg-slate-900'><Footer/></div>
       </CartProvider>

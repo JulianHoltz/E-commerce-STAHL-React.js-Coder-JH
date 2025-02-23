@@ -4,7 +4,8 @@ import {getProducts} from './mock/data'
 import {useParams} from 'react-router-dom';
 import Loader from './Loader';
 import {db} from '../services/firebase'
-import {collection, getDocs, query, where} from 'firebase/firestore'
+import {collection, getDocs, query, where, addDoc} from 'firebase/firestore'
+import {products} from './mock/data';
 
 
 
@@ -60,8 +61,17 @@ useEffect(()=>{
 
 //  //console.log(productsList); //productsList ahora tiene Data
 
+
+//FUNCION para subir los objetos a FIREBASE
+// const addData = () => {
+//   console.log('click recibido')
+//   const collectionToAdd = collection(db,"products")
+//   products.map((item)=>addDoc(collectionToAdd, item))
+// }
+
   return (
     <div className="flex flex-col bg-slate-800 w-full min-h-80 flex items-center justify-center">
+      {/* <button onClick={addData}>AGREAGRA PRODUCTOS</button> */}
       <h1 className="text-xl font-bold">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
       {loader
       ? <Loader/>

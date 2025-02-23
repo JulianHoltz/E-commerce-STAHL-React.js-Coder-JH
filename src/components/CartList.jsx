@@ -2,6 +2,7 @@ import React from 'react';
 import {useContext} from 'react';
 import {CartContext} from '../context/CartContext';
 import CartItem from './CartItem';
+import { Link } from 'react-router-dom';
 
 
 const CartList = () => {
@@ -30,7 +31,7 @@ const CartList = () => {
       </tfoot>
     </table>
     <button onClick={clear}>Empty Cart</button>
-    <button >Go to pay</button>
+    <Link to='/checkout'>Go to pay</Link>
     </div>
   )
 }
