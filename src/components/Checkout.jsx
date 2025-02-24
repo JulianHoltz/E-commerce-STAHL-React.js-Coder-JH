@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
 import {CartContext} from '../context/CartContext'
-import { addDoc, serverTimestamp, collection, getDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, serverTimestamp, collection, getDoc, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import { Link } from "react-router-dom";
 import Loader from './Loader';
+import EmptyCart from './EmptyCart';
 
 
 const Checkout = () => {
@@ -71,6 +72,8 @@ const Checkout = () => {
     if(loader){
         return <Loader/>
     }
+
+    if(!cart.length && !orderId){return <EmptyCart/>}
 
   return (
     <>
