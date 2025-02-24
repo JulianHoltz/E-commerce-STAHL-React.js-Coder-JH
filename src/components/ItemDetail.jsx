@@ -9,7 +9,6 @@ const ItemDetail = ({item}) => {
   const {cart, addItem} = useContext(CartContext) //Llamo a los elementos del CartContext
   const [purchase, setPurchase] = useState(false)
 
-  //console.log(item); //NO entendia por que no me cargaba el ITEM, por que cargaba el ITEM todavia vacio...
   if (!item || Object.keys(item).length === 0) {
     return <h2 className="text-center text-gray-500">Cargando producto...</h2>;
   }

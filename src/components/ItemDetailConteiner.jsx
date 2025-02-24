@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { getOneProduct } from './mock/data'
 import ItemDetail from './ItemDetail'
 import {Link, useParams} from 'react-router-dom';
 import Loader from './Loader';
@@ -7,7 +6,6 @@ import {db} from '../services/firebase'
 import {collection, getDoc, doc} from 'firebase/firestore'
 
 
-// Ver grabacion que falta usar el ID para cuando entras al producto clase 9 NAVEGACION, despues del breack
 
 const ItemDetailConteiner = () => {
 const [item, setItem] = useState({})
@@ -36,17 +34,6 @@ useEffect(()=>{
   .finally(()=>setLoader(false))
 },[])
 
-//Promise Local
-// useEffect(() => {
-//   console.log('se ejecuta el Effect')
-//   console.log('antes', itemId)
-//     setLoader(true);
-//     getOneProduct(itemId)
-//     .then((res) => setItem(res))
-//     .catch((error) => console.log(error))
-//     .finally(()=> setLoader(false))
-// },[itemId]); //al poner itemID entre el corchete el useEffect se ejecuta cada vez quecambie su valor(itemID)
-  
 
 //Return anticipado por si el producto no existe en la DB
   if(invalidItem){

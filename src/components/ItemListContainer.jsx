@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import {getProducts} from './mock/data'
 import {useParams} from 'react-router-dom';
 import Loader from './Loader';
 import {db} from '../services/firebase'
 import {collection, getDocs, query, where, addDoc} from 'firebase/firestore'
-import {products} from './mock/data';
 
 
 
@@ -40,38 +38,8 @@ useEffect(()=>{
 },[categoryId])
 
 
-
-//PROMESA DATOS LOCALES
-//   //UseEffect con array de dependencias vacio "[]", es decir que se ejecute una unica vez
-//   //PREGUNTA, se me ejecuta doble, por que???
-//  useEffect(() => {
-//   setLoader(true);
-//   //console.log(getProducts(), 'esto es la promesa cruda')
-//   getProducts()
-//   .then((res) => {
-//     if(categoryId){
-//       setProductsList(res.filter((item) => item.category === categoryId));
-//     } else {
-//       setProductsList(res);
-//     }
-//   }) //Si sale todo bien guardo la info en el estado
-//   .catch((error) => console.log(error, 'y esto seria el error')) //si falla atrapo el error
-//   .finally(()=> setLoader(false))
-//   },[categoryId]) //Aca seteo que este atento a ver si cambia el categoryId tiene que actualizar
-
-//  //console.log(productsList); //productsList ahora tiene Data
-
-
-//FUNCION para subir los objetos a FIREBASE
-// const addData = () => {
-//   console.log('click recibido')
-//   const collectionToAdd = collection(db,"products")
-//   products.map((item)=>addDoc(collectionToAdd, item))
-// }
-
   return (
     <div className="flex flex-col bg-slate-800 w-full min-h-80 flex items-center justify-center">
-      {/* <button onClick={addData}>AGREAGRA PRODUCTOS</button> */}
       <h1 className="text-xl font-bold">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
       {loader
       ? <Loader/>

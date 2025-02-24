@@ -3,7 +3,6 @@ import { IoCart } from "react-icons/io5";
 import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
-  //ACa sale un error... pero funciona igual REVISAR
   const { cartQuantity } = useContext(CartContext);
   console.log(cartQuantity());
   return (

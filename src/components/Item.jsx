@@ -3,11 +3,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export const Item = ({product}) => {
-    //console.log(product) //Esto me va imprimiendo en consola cada producto cargado
-
-    /*const onAdd = (cantidad) => {
-      alert(`Agregaste ${cantidad} al carritoS`)
-    }*/
 
   return (
     <div className='max-w-64 flex flex-col justify-center border-solid border-4 border-slate-300 rounded-2xl items-center p-4 bg-slate-100'>
