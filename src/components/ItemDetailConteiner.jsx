@@ -39,7 +39,7 @@ useEffect(()=>{
   if(invalidItem){
     return(
       <div>
-        <h2>El Item no existe!</h2>
+        <h2>The Item does not exist!</h2>
         <Link to='/'>Back to home</Link>
       </div>
     )

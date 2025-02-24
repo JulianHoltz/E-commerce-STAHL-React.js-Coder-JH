@@ -26,7 +26,7 @@ const itemCount = ({stock, onAdd}) => {
               <button className='rounded-r-lg bg-red-600 min-w-6 min-h-10 hover:bg-slate-600'  onClick={add} disabled={count > stock } >+</button>
               
           </div>
-          <button className='text-slate-300 mt-2 rounded-lg min-w-56 min-h-10 bg-slate-800 hover:bg-slate-600' disabled={count > stock || count === 0} onClick={()=>onAdd(count)}>Agregar al carrito</button>
+          <button className='text-slate-300 mt-2 rounded-lg min-w-56 min-h-10 bg-slate-800 hover:bg-slate-600' disabled={count > stock || count === 0} onClick={()=>onAdd(count)}>Add to cart</button>
       </div>
     </>
   )

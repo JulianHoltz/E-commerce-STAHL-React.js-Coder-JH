@@ -12,7 +12,6 @@ import Checkout from './components/Checkout';
 
 
 
-
 function App() {
 
   return (
@@ -20,7 +19,7 @@ function App() {
       <CartProvider>
       <div className='bg-slate-900'><NavBar/></div>
       <Routes>
-        <Route path='/' element={<ItemListContainer greeting='Bienvenido!'/>}/>
+        <Route path='/' element={<ItemListContainer greeting='Wellcome!'/>}/>
         <Route path='/aboutUs' element={<AboutUs/>}/>
         <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
         <Route path='/item/:itemId' element={<ItemDetailConteiner/>}/>

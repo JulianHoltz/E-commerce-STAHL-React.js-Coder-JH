@@ -40,7 +40,7 @@ useEffect(()=>{
 
   return (
     <div className="flex flex-col bg-slate-800 w-full min-h-80 flex items-center justify-center">
-      <h1 className="text-xl font-bold">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
+      <h1 className="text-xl font-bold text-slate-100">{greeting}{categoryId && <span>{categoryId}</span>}</h1>
       {loader
       ? <Loader/>
       : <ItemList productsList = {productsList}/>}
